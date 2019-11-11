@@ -29,6 +29,7 @@
 #' @param toPlot "all", "frame" (axis etc), "observations" (points), "regressionline" (line), "infos" (parameters, R2)
 #' @param regressioncolor color of regression line and paramter text
 #' @param weight_threshold if numeric, all countries below this threshold will be excluded (e.g. to exclude minor islands)
+#' @param crossvalid vector with boolean values, indicating which data should be excluded from sampling and rather be used for validation
 #' @param ... will be passed on to function nls
 #' @return A nice picture and regression parameters or eventually some errors.
 #' @author Benjamin Leon Bodirsky, Susanne Rolinski, Xiaoxi Wang
@@ -86,6 +87,7 @@ nlsregression <- function(func, # y ~ a*x/b+x
                           plot_x_function="ignore",
                           regressioncolor="blue",
                           weight_threshold=NULL,
+                          crossvalid=NULL,
                           ...)
 {
   rounding_helper<-function(x) {
@@ -281,6 +283,7 @@ nlsregression <- function(func, # y ~ a*x/b+x
   if(is.magpie(y)){y<-as.vector(y)}
   if(is.magpie(z)){z<-as.vector(z)}
   if(is.magpie(weight)){weight<-as.vector(weight)}
+  if(is.magpie(crossvalid)){crossvalid<-as.vector(crossvalid)}
   
   
   if(plot_x_function!="ignore"){stop("argument plot_x_function is depreciated, please remove")}
@@ -301,34 +304,53 @@ nlsregression <- function(func, # y ~ a*x/b+x
   
   # remove all NA
   naVec = y * x
-  if (!is.null(z))
-  {
+  if (!is.null(z)){
     naVec = naVec * z
   }
-  if (!is.null(weight))
-  {
+  if (!is.null(weight)){
     if(!is.null(weight_threshold)){
       weight[weight<weight_threshold]<-NA
     }
     naVec = naVec * weight
   }
+  if (is.null(crossvalid)){
+    crossvalid = naVec
+    crossvalid[] = 0
+  }
   for(i in length(naVec):1) {
-    if(is.na(naVec[i]))
-    {
+    if(is.na(naVec[i])) {
       y = y[-i]
       x = x[-i]
-      if (!is.null(z))
-      {
+      if (!is.null(z)) {
         z = z[-i]
       }
-      if (!is.null(weight))
-      {
+      if (!is.null(weight)) {
         weight = weight[-i]
+      }
+      if (!is.null(crossvalid)) {
+        crossvalid = crossvalid[-i]
       }
     }
   }
   
-  #
+  # split dataset in regression and validation data
+  if(any(crossvalid>0)){
+    y_valid = y[which(crossvalid==1)]
+    y = y[which(crossvalid==0)]
+    x_valid = x[which(crossvalid==1)]
+    x = x[which(crossvalid==0)]
+  
+    if (!is.null(z)) {
+      z_valid = z[which(crossvalid==1)]
+      z = z[which(crossvalid==0)]
+    }
+  
+    if (!is.null(weight)) {
+      weight_valid = weight[which(crossvalid==1)]
+      weight = weight[which(crossvalid==0)]
+    }
+
+  }
   
   
   if (is.null(weight))  {
@@ -443,7 +465,17 @@ nlsregression <- function(func, # y ~ a*x/b+x
     
     standarderror=(sum((prediction-observation)^2)/length(observation))^0.5
     
+    ### Out of sample cross-validation
     
+    if(any(crossvalid>0)){
+      y_valid_predict = predict(opt,data.frame('x'=x_valid))
+      out_of_sample_R2_unweighted = max(cor(y_valid_predict, y_valid),0)^2
+      out_of_sample_R2_weighted = max(corr(matrix(data = c(y_valid,y_valid_predict),ncol = 2),w = weight_valid),0)^2
+    } else {
+      out_of_sample_R2_unweighted=NULL
+      out_of_sample_R2_weighted=NULL
+    }
+
     ### transforming formulas into expression or functions
     
     formula2<-gsub(" ", "", format(func)[[3]], fixed = TRUE)
@@ -470,7 +502,9 @@ nlsregression <- function(func, # y ~ a*x/b+x
                         loglik = loglik,
                         norm_test = norm_test,
                         # bp_test = bp_test,
-                        robust_out = robust_out
+                        robust_out = robust_out,
+                        out_of_sample_R2_unweighted,
+                        out_of_sample_R2_weighted
     )
     
     if(any(c("all","regression")%in%toPlot))    {    

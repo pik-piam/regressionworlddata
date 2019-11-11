@@ -15,13 +15,14 @@
 #' @importFrom magpiesets findset
 #' @importFrom moinput toolFAOcombine
 #' @importFrom stats quantile
+#' @importFrom stats runif
 #' @import magclass
 #' @import madrat
 #' @export
 
-calcCollectRegressionData <- function(datasources)
-  {
-    combined<-list()
+calcCollectRegressionData <- function(datasources){
+  
+  combined<-list()
   
   if ("wooddemand" %in% datasources) {
     wooddemand <- calcOutput("FAOForestryDemand",aggregate = FALSE)
@@ -130,7 +131,7 @@ calcCollectRegressionData <- function(datasources)
   }
   
   if ("intake_demography" %in% datasources) {
-    intake <- calcOutput("Intake",convert=FALSE, modelinput=FALSE, standardize=FALSE, method="Froehle", aggregate=FALSE)
+    intake <- calcOutput("Intake",convert=FALSE, modelinput=FALSE, standardize=FALSE, method="schofield", aggregate=FALSE)
     intake<-collapseNames(intake[,,"SSP2"][,,c("F","M")])
     getNames(intake)<-paste0("intake_",sub(x = getNames(intake),pattern = "\\.",replacement = "_"))
     getSets(intake)<-c("region","year","intake")
@@ -370,6 +371,23 @@ calcCollectRegressionData <- function(datasources)
     getYears(combined[[1]])
     combined$climate<-CZ
   }
+    
+  if (any(grepl("crossvalid",datasources))) {  
+    code=datasources[grep("crossvalid",datasources)]
+    code2=strsplit(code,"_")
+    randomseed = as.integer(substring(code2[[1]][2],5))
+    k = as.integer(substring(code2[[1]][3],2))
+    # format: crossvalid_seedX_kY
+    # X is the random seed,
+    # Y is the number of drawings
+    
+    countries = toolGetMapping("iso_country.csv", where = "moinput")
+    years=paste0("y",1961:2020)
+    sampleset=new.magpie(cells_and_regions = countries$x,years = years,names = code)
+    set.seed(42); sampleset[,,] <- round(runif(length(sampleset))*k+0.5)
+
+    combined$crossvalid<-sampleset
+   }    
   
 
   mbindCommonDimensions <- function(magpielist){

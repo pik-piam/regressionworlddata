@@ -12,6 +12,11 @@
 #' @param countries_nlsAddLines the number of weightiest countries or the name of countries that shall be plotted by lines in the plot
 #' @param weight the weight
 #' @param x_log10 passed on to nlsregression()
+#' @param crossvalid_sample sample name from moinput used for crossvalidation. Name is built as follows:
+#' crossvalid_seedX_kY
+#' X is the random seed,
+#' Y is the number of drawings. The combination of all drawings is the full sample.
+#' @param crossvalid_drawing selected drawing of k in crossvalidsample
 #' @param ... further attributes that will be handed on to nlsregression(): 
 #' 
 #' An additional explanatory variable z can be added.
@@ -58,11 +63,13 @@ toolRegression<-function(denominator,
                                countries_nlsAddLines=NULL,
                                weight="pop",
                                x_log10=FALSE,
+                               crossvalid_sample = NULL,
+                               crossvalid_drawing=1,
                                ...
                                )
 {
   if (is.null(data)){ 
-    data<-toolCollectRegressionVariables(indicators=c(denominator,quotient,x,z,weight))
+    data<-toolCollectRegressionVariables(indicators=c(denominator,quotient,x,z,weight,crossvalid_sample))
   }
   
   if(is.null(xlab)){
@@ -103,6 +110,13 @@ toolRegression<-function(denominator,
     weight = dimSums(data[,,weight],dim=3)
   }
   
+  if(is.null(crossvalid_sample)){
+    crossvalid=NULL
+  } else {
+    crossvalid=data[,,crossvalid_sample]
+    crossvalid[,,] = (crossvalid==crossvalid_drawing)
+  }
+  
   denom = dimSums(data[,,denom],dim=3)
   
   #gdp per capita ausrechnen und z(urban oder education shr) ausrechnen
@@ -136,6 +150,7 @@ toolRegression<-function(denominator,
     xlab=xlab, 
     ylab=ylab,
     x_log10=x_log10,
+    crossvalid=as.vector(crossvalid),
     ...
     )
  

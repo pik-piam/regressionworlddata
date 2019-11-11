@@ -158,6 +158,11 @@ toolCollectRegressionVariables<-function(indicators){
     datasources=c(datasources,"intake_standardized_demography")
   }
   
+  if (any(grepl("crossvalid",indicators))) {
+    code=indicators[grep("crossvalid",indicators)]
+    datasources=c(datasources,code)
+  }
+  
   
   data<-calcOutput("CollectRegressionData",datasources=datasources,aggregate = FALSE)[,,indicators]
   #data<-calcOutput("CollectRegressionData",aggregate = FALSE)
