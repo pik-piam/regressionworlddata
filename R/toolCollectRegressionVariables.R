@@ -9,7 +9,7 @@ toolCollectRegressionVariables<-function(indicators){
   indicators<-unique(indicators)
   
   datasources=NULL
-  if (any(c("roundwood","wood","woodfuel") %in% indicators)) {
+  if (any(c("Industrial_roundwood","Wood_fuel") %in% indicators)) {
     datasources=c(datasources,"wooddemand")
   }
   if ("forest_area" %in% indicators) {
@@ -20,6 +20,7 @@ toolCollectRegressionVariables<-function(indicators){
             "Sawlogs and veneer logs","Fibreboard","Particle board and OSB","Wood pulp","Sawnwood",
             "Plywood","Veneer sheets","Wood-based panels" ,
             "Other sawnwood") %in% indicators)) {
+    
     datasources=c(datasources,"timber_demand")
   }
   
