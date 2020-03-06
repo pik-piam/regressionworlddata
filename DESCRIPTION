@@ -1,8 +1,8 @@
 Package: mrregression
 Type: Package
 Title: Regression analysis for model parametrization
-Version: 3.16.1
-Date: 2020-02-22
+Version: 3.17.0
+Date: 2020-03-06
 Author: Benjamin Leon Bodirsky, Antonia Walther, Xiaoxi Wang, Abhijeet Mishra, Eleonora Martinelli
 Maintainer: Benjamin Leon Bodirsky <bodirsky@pik-potsdam.de>
 Description: Model estimates parameters of model functions.
@@ -21,8 +21,10 @@ Imports:
     RColorBrewer,
     boot,
     nlstools
+Suggests:
+  testthat
 License: LGPL-3 | file LICENSE
 LazyData: no
 RoxygenNote: 7.0.2
-ValidationKey: 57890554
+ValidationKey: 58096590
 Encoding: UTF-8
