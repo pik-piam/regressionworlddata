@@ -25,23 +25,7 @@ calcCollectRegressionData <- function(datasources){
   combined<-list()
   
   if ("wooddemand" %in% datasources) {
-    wooddemand <- calcOutput("FAOForestryDemand",aggregate = FALSE)
-    roundwood <- wooddemand[,,"roundwood.domestic_supply"]
-    roundwood <- setNames(roundwood,c("roundwood"))
-    
-    wood <- wooddemand[,,"wood.domestic_supply"]
-    wood <- setNames(wood,c("wood"))
-    
-    woodfuel <- wooddemand[,,"woodfuel.domestic_supply"]
-    woodfuel <- setNames(woodfuel,c("woodfuel"))
-    
-    wooddemand <- mbind(roundwood,wood,woodfuel)
-    wooddemand <- wooddemand[,sort(getYears(wooddemand)),]
-    wooddemand <- wooddemand[which(!is.na(dimnames(wooddemand)[[1]])),,]
-    wooddemand[c("TWN","AIA","NRU","VGB","KWT","COK"),,] <- 0
-    
-    wooddemand[,,"woodfuel"] <- wooddemand[,,"woodfuel"]*1000/632.5 ## mio.m3
-    wooddemand[,,"wood"] <- wooddemand[,,"wood"]*1000/307.1 ## mio.m3
+    wooddemand <- collapseNames(calcOutput("TimberDemand",aggregate = F)[,,"domestic_supply"])
     combined$wooddemand<-wooddemand
   }
     
