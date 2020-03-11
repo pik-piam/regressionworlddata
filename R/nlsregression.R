@@ -503,8 +503,8 @@ nlsregression <- function(func, # y ~ a*x/b+x
                         norm_test = norm_test,
                         # bp_test = bp_test,
                         robust_out = robust_out,
-                        out_of_sample_R2_unweighted,
-                        out_of_sample_R2_weighted
+                        out_of_sample_R2_unweighted=out_of_sample_R2_unweighted,
+                        out_of_sample_R2_weighted=out_of_sample_R2_weighted
     )
     
     if(any(c("all","regression")%in%toPlot))    {    
