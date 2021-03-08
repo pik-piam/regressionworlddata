@@ -1,4 +1,4 @@
-# R mrregression package
+# R regressionworlddata package
 
 ## Purpose and Functionality
 
@@ -16,7 +16,7 @@ The additional repository can be made availably permanently by adding the line a
 After that the most recent version of the package can be installed using `install.packages`:
 
 ```r 
-install.packages("mrregression")
+install.packages("regressionworlddata")
 ```
 
 Package updates can be installed using `update.packages` (make sure that the additional repository has been added before running that command):
@@ -27,7 +27,7 @@ update.packages()
 
 ## Travis CI Integration
 
-[![Travis build status](https://travis-ci.com/pik-piam/mrregression.svg?branch=master)](https://travis-ci.com/pik-piam/mrregression)
+[![Travis build status](https://travis-ci.com/pik-piam/regressionworlddata.svg?branch=master)](https://travis-ci.com/pik-piam/mrregression)
 
 ## Questions / Problems
 

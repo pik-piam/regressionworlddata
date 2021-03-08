@@ -1,8 +1,8 @@
-Package: mrregression
+Package: regressionworlddata
 Type: Package
-Title: Regression analysis for model parametrization
-Version: 3.17.1
-Date: 2020-03-11
+Title: Regression analysis based on global datasets
+Version: 1.1.0
+Date: 2021-03-08
 Author: Benjamin Leon Bodirsky, Antonia Walther, Xiaoxi Wang, Abhijeet Mishra, Eleonora Martinelli
 Maintainer: Benjamin Leon Bodirsky <bodirsky@pik-potsdam.de>
 Description: Model estimates parameters of model functions.
@@ -10,8 +10,8 @@ Depends:
     R(>= 2.10.0),
     magclass(>= 3.17),
     madrat(>= 1.28),
-    moinput(>= 8.145),
-    magpiesets(>= 0.27)
+    magpiesets(>= 0.27),
+    mrcommons
 Imports:
     stats, 
 	lmtest,
@@ -25,6 +25,5 @@ Suggests:
   testthat
 License: LGPL-3 | file LICENSE
 LazyData: no
-RoxygenNote: 7.0.2
-ValidationKey: 58130772
+RoxygenNote: 7.1.1
 Encoding: UTF-8

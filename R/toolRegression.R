@@ -8,11 +8,11 @@
 #' @param z additional independet variable
 #' @param xlab name of x axis
 #' @param ylab name of y axis
-#' @param data data can be provided if Data shall not be derived by moinput:::calcCollectFoodDemandRegressionData()
+#' @param data data can be provided if Data shall not be derived by mrcommons:::calcCollectFoodDemandRegressionData()
 #' @param countries_nlsAddLines the number of weightiest countries or the name of countries that shall be plotted by lines in the plot
 #' @param weight the weight
 #' @param x_log10 passed on to nlsregression()
-#' @param crossvalid_sample sample name from moinput used for crossvalidation. Name is built as follows:
+#' @param crossvalid_sample sample name from madrat used for crossvalidation. Name is built as follows:
 #' crossvalid_seedX_kY
 #' X is the random seed,
 #' Y is the number of drawings. The combination of all drawings is the full sample.

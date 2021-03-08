@@ -1,4 +1,4 @@
 library(testthat)
-library(mrregression)
+library(regressionworlddata)
 
-test_check("mrregression")
+test_check("regressionworlddata")

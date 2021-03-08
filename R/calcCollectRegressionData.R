@@ -13,7 +13,7 @@
 
 #' @importFrom countrycode countrycode
 #' @importFrom magpiesets findset
-#' @importFrom moinput toolFAOcombine
+#' @importFrom mrcommons toolFAOcombine
 #' @importFrom stats quantile
 #' @importFrom stats runif
 #' @import magclass
