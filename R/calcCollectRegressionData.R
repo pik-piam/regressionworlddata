@@ -193,14 +193,14 @@ calcCollectRegressionData <- function(datasources){
 
   if("BMI_shr"  %in% datasources){
     x<-readSource("NCDrisc",subtype="BMI_shr",convert=FALSE)
-    mapping<-toolMappingFile(type = "sectoral",name = "NCDriscBMIshr2Lutz.csv",readcsv = TRUE)
+    mapping <- toolGetMapping(type = "sectoral", name = "NCDriscBMIshr2Lutz.csv")
     Lutz<-calcOutput("Demography",education=FALSE,aggregate = FALSE)
     Lutz<-collapseNames(time_interpolate(Lutz[getRegions(x),,"SSP2"],interpolated_year = getYears(x),integrate_interpolated_years = FALSE))
     Lutz2<-toolAggregate(Lutz[,,c(mapping$lutz)],rel = mapping,from = "lutz",to = "NCDrisc",dim=3.2)
     getSets(Lutz2)<-c("country","year","sex","age")
     Lutz2<-dimOrder(Lutz2,perm = c(2,1))
     
-    mapping<-toolMappingFile(type = "sectoral",name = "NCDriscBMIshr2agegroups.csv",readcsv = TRUE)
+    mapping <- toolGetMapping(type = "sectoral", name = "NCDriscBMIshr2agegroups.csv")
     twogroups<-toolAggregate(x,rel = mapping,weight = Lutz2,from = "NCDrisc",to="agegroups",dim=3.1)
     
     dimnames(twogroups)[[3]]<-gsub(pattern = "\\.",replacement = "_",dimnames(twogroups)[[3]])
@@ -220,7 +220,7 @@ calcCollectRegressionData <- function(datasources){
   if ("BMI" %in% datasources){
     
     x<-readSource("NCDrisc",subtype="BMI",convert=FALSE)
-    mapping<-toolMappingFile(type = "sectoral",name = "NCDrisc2Lutz.csv",readcsv = TRUE)
+    mapping <- toolGetMapping(type = "sectoral", name = "NCDrisc2Lutz.csv")
     BMI<-new.magpie(cells_and_regions = getRegions(x),years = getYears(x),names = c(paste0(unique(mapping$lutz),".M"),paste0(unique(mapping$lutz),".F")))
     for(i in getNames(BMI,dim=1)){
       item<-mapping$NCDrisc[mapping$lutz==i]

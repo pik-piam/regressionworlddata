@@ -1,0 +1,22 @@
+{
+  "title": "regressionworlddata: Regression analysis based on global datasets",
+  "version": "1.1.1",
+  "description": "<p>Model estimates parameters of model functions.<\/p>",
+  "creators": [
+    {
+      "name": "Bodirsky, Benjamin Leon"
+    },
+    {
+      "name": "Walther, Antonia"
+    },
+    {
+      "name": "Wang, Xiaoxi"
+    },
+    {
+      "name": "Mishra, Abhijeet"
+    },
+    {
+      "name": "Martinelli, Eleonora"
+    }
+  ]
+}

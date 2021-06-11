@@ -38,7 +38,7 @@ toolRegressionTable <- function(           scenario="SSP2",
                                            return_value=FALSE)
 {
   t1 <- Sys.time()
-  table_database <-  toolMappingFile(type = "settings",name= regression_database_file,readcsv = T)
+  table_database <- toolGetMapping(type = "settings", name = regression_database_file)
 
   table <- table_database
   x_IndepVar <- x
