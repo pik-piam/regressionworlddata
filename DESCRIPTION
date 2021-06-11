@@ -1,26 +1,30 @@
 Package: regressionworlddata
 Type: Package
 Title: Regression analysis based on global datasets
-Version: 1.1.0
-Date: 2021-03-08
-Author: Benjamin Leon Bodirsky, Antonia Walther, Xiaoxi Wang, Abhijeet Mishra, Eleonora Martinelli
+Version: 1.1.1
+Date: 2021-06-11
+Authors@R: c(person("Benjamin Leon", "Bodirsky", email = "bodirsky@pik-potsdam.de", role = c("aut", "cre")),
+             person("Antonia", "Walther", role = "aut"),
+             person("Xiaoxi", "Wang", role = "aut"),
+             person("Abhijeet", "Mishra", role = "aut"),
+             person("Eleonora", "Martinelli", role = "aut"))
 Maintainer: Benjamin Leon Bodirsky <bodirsky@pik-potsdam.de>
 Description: Model estimates parameters of model functions.
 Depends:
-    R(>= 2.10.0),
-    magclass(>= 3.17),
-    madrat(>= 1.28),
-    magpiesets(>= 0.27),
-    mrcommons
+  R(>= 2.10.0),
+  magclass(>= 3.17),
+  madrat(>= 1.28),
+  magpiesets(>= 0.27),
+  mrcommons
 Imports:
-    stats, 
-	lmtest,
-	sandwich,
-    graphics,
-    countrycode,
-    RColorBrewer,
-    boot,
-    nlstools
+  stats, 
+  lmtest,
+  sandwich,
+  graphics,
+  countrycode,
+  RColorBrewer,
+  boot,
+  nlstools
 Suggests:
   testthat
 License: LGPL-3 | file LICENSE
