@@ -1,8 +1,8 @@
 # Regression analysis based on global datasets
 
-R package **regressionworlddata**, version **1.1.1**
+R package **regressionworlddata**, version **1.1.2**
 
-[![CRAN status](https://www.r-pkg.org/badges/version/regressionworlddata)](https://cran.r-project.org/package=regressionworlddata)  [![Travis build status](https://travis-ci.com/pfuehrlich-pik/regressionworlddata.svg?branch=master)](https://travis-ci.com/pfuehrlich-pik/regressionworlddata)  
+[![CRAN status](https://www.r-pkg.org/badges/version/regressionworlddata)](https://cran.r-project.org/package=regressionworlddata)   [![R build status](https://github.com/pik-piam/regressionworlddata/workflows/check/badge.svg)](https://github.com/pik-piam/regressionworlddata/actions) [![codecov](https://codecov.io/gh/pik-piam/regressionworlddata/branch/master/graph/badge.svg)](https://codecov.io/gh/pik-piam/regressionworlddata) [![r-universe](https://pik-piam.r-universe.dev/badges/regressionworlddata)](https://pik-piam.r-universe.dev/ui#builds)
 
 ## Purpose and Functionality
 
@@ -30,22 +30,15 @@ Package updates can be installed using `update.packages` (make sure that the add
 update.packages()
 ```
 
-## Travis CI Integration
-
-[![Travis build status](https://travis-ci.com/pik-piam/regressionworlddata.svg?branch=master)](https://travis-ci.com/pik-piam/mrregression)
-
 ## Questions / Problems
 
 In case of questions / problems please contact Benjamin Leon Bodirsky <bodirsky@pik-potsdam.de>.
 
 ## Citation
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3699647.svg)](https://doi.org/10.5281/zenodo.3699647)
-
 To cite package **regressionworlddata** in publications use:
 
-Bodirsky B, Walther A, Wang X, Mishra A, Martinelli E (2021). _regressionworlddata: Regression analysis based on global
-datasets_. R package version 1.1.1.
+Bodirsky B, Walther A, Wang X, Mishra A, Martinelli E (2021). _regressionworlddata: Regression analysis based on global datasets_. R package version 1.1.2.
 
 A BibTeX entry for LaTeX users is
 
@@ -54,6 +47,7 @@ A BibTeX entry for LaTeX users is
   title = {regressionworlddata: Regression analysis based on global datasets},
   author = {Benjamin Leon Bodirsky and Antonia Walther and Xiaoxi Wang and Abhijeet Mishra and Eleonora Martinelli},
   year = {2021},
-  note = {R package version 1.1.1},
+  note = {R package version 1.1.2},
 }
 ```
+

@@ -1,5 +1,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^\.travis.yml
 ^\.buildlibrary$
 ^.*\.zenodo.json$
+^\.github$
+^codecov\.yml$
