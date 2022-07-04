@@ -529,5 +529,3 @@ nlsregression <- function(func, # y ~ a*x/b+x
   }
   return(returnvalue)
 }
-
-

@@ -50,5 +50,3 @@ nlsAddLines<-function(y,x,countries=1:5,weight=NULL,x_log10=FALSE,colors="black"
     }
   }
 }
-
-

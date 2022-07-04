@@ -13,6 +13,3 @@
 #' 
 #' Maintainer:  Benjamin Leon Bodirsky <bodirsky@@pik-potsdam.de>
 NULL
-
-
-
