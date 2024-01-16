@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: If you use this software, please cite it using the metadata from this file.
+type: software
+title: 'regressionworlddata: Regression analysis based on global datasets'
+version: 1.1.4
+date-released: '2024-01-16'
+abstract: Model estimates parameters of model functions.
+authors:
+- family-names: Bodirsky
+  given-names: Benjamin Leon
+  email: bodirsky@pik-potsdam.de
+- family-names: Walther
+  given-names: Antonia
+- family-names: Wang
+  given-names: Xiaoxi
+- family-names: Mishra
+  given-names: Abhijeet
+- family-names: Martinelli
+  given-names: Eleonora
+license: LGPL-3.0
+
