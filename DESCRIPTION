@@ -1,34 +1,36 @@
-Package: regressionworlddata
 Type: Package
+Package: regressionworlddata
 Title: Regression analysis based on global datasets
 Version: 1.1.4
 Date: 2024-01-16
-Authors@R: c(person("Benjamin Leon", "Bodirsky", email = "bodirsky@pik-potsdam.de", role = c("aut", "cre")),
-             person("Antonia", "Walther", role = "aut"),
-             person("Xiaoxi", "Wang", role = "aut"),
-             person("Abhijeet", "Mishra", role = "aut"),
-             person("Eleonora", "Martinelli", role = "aut"))
+Authors@R: c(
+    person("Benjamin Leon", "Bodirsky", , "bodirsky@pik-potsdam.de", role = c("aut", "cre")),
+    person("Antonia", "Walther", role = "aut"),
+    person("Xiaoxi", "Wang", role = "aut"),
+    person("Abhijeet", "Mishra", role = "aut"),
+    person("Eleonora", "Martinelli", role = "aut")
+  )
 Maintainer: Benjamin Leon Bodirsky <bodirsky@pik-potsdam.de>
 Description: Model estimates parameters of model functions.
+License: LGPL-3 | file LICENSE
 Depends:
-  R(>= 2.10.0),
-  magclass(>= 3.17),
-  madrat(>= 1.28),
-  magpiesets(>= 0.27),
-  mrcommons
+    R (>= 2.10.0),
+    madrat (>= 1.28),
+    magclass (>= 3.17),
+    magpiesets (>= 0.27),
+    mrcommons
 Imports:
-  stats, 
-  lmtest,
-  sandwich,
-  graphics,
-  countrycode,
-  RColorBrewer,
-  boot,
-  nlstools
+    RColorBrewer,
+    boot,
+    countrycode,
+    graphics,
+    lmtest,
+    nlstools,
+    sandwich,
+    stats
 Suggests:
     covr,
     testthat
-License: LGPL-3 | file LICENSE
+Encoding: UTF-8
 LazyData: no
 RoxygenNote: 7.3.0
-Encoding: UTF-8
