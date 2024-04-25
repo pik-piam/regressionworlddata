@@ -7,18 +7,21 @@
 calcCollectRegressionData(datasources)
 }
 \arguments{
-\item{datasources}{All datasources that shall be returned. Due to the cropping of data which is not present in all datasources, reducing the number of datasources will increase the number of observations.}
+\item{datasources}{All datasources that shall be returned. Due to the cropping
+of data which is not present in all datasources, reducing the number of datasources
+will increase the number of observations.}
 }
 \value{
-List of magpie objects with results on country level, weight on country level, unit and description.
+List of magpie objects with results on country level, weight on country level,
+unit and description.
 }
 \description{
-collects regression data using un-converted raw data sources, and crops the data that only joint years and countries are selected.
+collects regression data using un-converted raw data sources, and
+crops the data that only joint years and countries are selected.
 }
 \examples{
-
-\dontrun{ 
-calcOutput("CollectRegressionData",aggregate=F)
+\dontrun{
+calcOutput("CollectRegressionData", aggregate = F)
 }
 
 }
