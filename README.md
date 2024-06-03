@@ -1,6 +1,6 @@
 # Regression analysis based on global datasets
 
-R package **regressionworlddata**, version **1.1.4**
+R package **regressionworlddata**, version **1.1.5**
 
 [![CRAN status](https://www.r-pkg.org/badges/version/regressionworlddata)](https://cran.r-project.org/package=regressionworlddata)  [![R build status](https://github.com/pik-piam/regressionworlddata/workflows/check/badge.svg)](https://github.com/pik-piam/regressionworlddata/actions) [![codecov](https://codecov.io/gh/pik-piam/regressionworlddata/branch/master/graph/badge.svg)](https://app.codecov.io/gh/pik-piam/regressionworlddata) [![r-universe](https://pik-piam.r-universe.dev/badges/regressionworlddata)](https://pik-piam.r-universe.dev/builds)
 
@@ -38,7 +38,7 @@ In case of questions / problems please contact Benjamin Leon Bodirsky <bodirsky@
 
 To cite package **regressionworlddata** in publications use:
 
-Bodirsky B, Walther A, Wang X, Mishra A, Martinelli E (2024). _regressionworlddata: Regression analysis based on global datasets_. R package version 1.1.4.
+Bodirsky B, Walther A, Wang X, Mishra A, Martinelli E (2024). _regressionworlddata: Regression analysis based on global datasets_. R package version 1.1.5.
 
 A BibTeX entry for LaTeX users is
 
@@ -47,6 +47,6 @@ A BibTeX entry for LaTeX users is
   title = {regressionworlddata: Regression analysis based on global datasets},
   author = {Benjamin Leon Bodirsky and Antonia Walther and Xiaoxi Wang and Abhijeet Mishra and Eleonora Martinelli},
   year = {2024},
-  note = {R package version 1.1.4},
+  note = {R package version 1.1.5},
 }
 ```
